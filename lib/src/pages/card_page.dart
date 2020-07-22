@@ -13,7 +13,28 @@ class Cardpage extends StatelessWidget {
         children: <Widget>[
           _cardTipo1(),
           SizedBox(height: 30.0),
-          _cardTipo2()
+          _cardTipo2(),
+          SizedBox(height: 30.0),
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2(),
+          SizedBox(height: 30.0),
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2(),
+          SizedBox(height: 30.0),
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2(),
+          SizedBox(height: 30.0),
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2(),
+          SizedBox(height: 30.0),
+          _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2(),
+          SizedBox(height: 30.0),
         ],
       ),
     );
@@ -21,6 +42,8 @@ class Cardpage extends StatelessWidget {
 
   Widget _cardTipo1() {
     return Card(
+      elevation: 20.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
       child: Column(
         children: <Widget>[
           ListTile(
@@ -48,18 +71,39 @@ class Cardpage extends StatelessWidget {
 
   _cardTipo2() {//tarjeta con imagen
 
-    return Card(
+    final card = Container(
       child: Column(
         children: <Widget>[
-          
-        Image(
-          image: NetworkImage('https://www.goodfreephotos.com/albums/other-landscapes/golden-landscape-with-clouds-and-hills.jpg'),
-          ),
+          FadeInImage(//Para mostrar ina animacion mientras se carga la imagen
+              placeholder: AssetImage('assets/jar-loading.gif'),
+              fadeInDuration: Duration(milliseconds: 200),
+              height: 300.0,
+              fit: BoxFit.cover,
+              image: NetworkImage('https://www.goodfreephotos.com/albums/other-landscapes/golden-landscape-with-clouds-and-hills.jpg')),
           Container(
             padding: EdgeInsets.all(10.0),
               child: Text('Cosas a mostrar')
           )
         ],
+      ),
+    );
+
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.0),
+          color: Colors.white,
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10.0,
+              spreadRadius: 2.0,
+              offset: Offset(2.0, 10.0)
+          ),
+        ]
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30.0),
+        child: card,
       ),
     );
   }
